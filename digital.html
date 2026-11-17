@@ -12,7 +12,7 @@
 :root[data-theme="dark"] { --bg: #111a17; --card: #1a2723; --ink: #e8f1ed; --muted: #a9bfb6; --verde: #8fd3b1; --verde-2: #3c9a6e; --ambar: #f0c15a; --linea: #35483f; }
 * { box-sizing: border-box; }
 body { margin: 0; background: var(--bg); color: var(--ink); font-family: system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif; font-size: 17px; }
-.wrap { max-width: 640px; margin: 0 auto; padding: 16px; }
+.wrap { max-width: 1200px; margin: 0 auto; padding: 16px; }
 h1 { font-size: 1.7rem; margin: 6px 0 4px; color: var(--verde); }
 h2 { font-size: 1.1rem; margin: 0 0 8px; color: var(--verde); }
 .card { background: var(--card); border: 1px solid var(--linea); border-radius: 16px; padding: 16px; margin-bottom: 14px; }
@@ -67,6 +67,10 @@ button:focus-visible { outline: 3px solid var(--ambar); outline-offset: 2px; }
 .insignia .docente { font-size: .8rem; margin-top: 4px; }
 .pie { display: flex; gap: 10px; flex-wrap: wrap; }
 .aviso { min-height: 1.4em; color: var(--verde); margin-top: 8px; }
+.layout { display: grid; gap: 14px; grid-template-columns: minmax(0, 1fr); }
+.layout > div { display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+.layout .card { margin-bottom: 0; }
+@media (min-width: 900px) { .layout { grid-template-columns: minmax(280px, 380px) minmax(0, 1fr); align-items: start; } }
 </style>
 </head>
 <body>
@@ -75,6 +79,7 @@ button:focus-visible { outline: 3px solid var(--ambar); outline-offset: 2px; }
   <h1>Mi semana</h1>
   <p class="muted" style="margin-top:0">Marca cada franja cuando la cumplas. Tu docente la confirma. No se guarda nada: copia el resumen al final.</p>
 
+  <div class="layout"><div class="lateral">
   <div class="card">
     <div class="seg" role="group" aria-label="Quién está usando la pantalla">
       <button type="button" id="soyAlumno" class="on" aria-pressed="true">Soy alumno/a</button>
@@ -109,6 +114,7 @@ button:focus-visible { outline: 3px solid var(--ambar); outline-offset: 2px; }
     </div>
   </div>
 
+  </div><div class="principal">
   <div class="card">
     <h2>Mis franjas</h2>
     <div class="grid" id="grid"></div>
@@ -143,6 +149,8 @@ button:focus-visible { outline: 3px solid var(--ambar); outline-offset: 2px; }
     </div>
     <div class="aviso" id="aviso" role="status" aria-live="polite"></div>
   </div>
+  </div>
+</div>
 </div>
 
 <script>

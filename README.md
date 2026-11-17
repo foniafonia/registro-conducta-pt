@@ -14,4 +14,4 @@ Archivos:
 No se guarda nada ni se envía nada: los datos se quedan en la pantalla y se borran al cerrar la pestaña. No escribas nombres completos, teléfonos ni datos de menores; usa iniciales.
 
 ## Cómo se imprime
-Abre la versión imprimible a pantalla completa y pulsa «Imprimir». Son 2 hojas A4 con márgenes de 10 mm.
+Pulsa «Imprimir» dentro de la versión imprimible. Son 2 hojas A4 con márgenes de 10 mm.
